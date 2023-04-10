@@ -22,7 +22,6 @@ function loginScreenRender() {
     title.classList.add('login__title');
     title.textContent = 'Выберите ваше устройство';
 
-    
 
     app.appendChild(wrapper);
     wrapper.appendChild(title);
@@ -43,6 +42,14 @@ function deviceBlockRender(container) {
     buttonPhone.classList.add('login__device__button');
     buttonPhone.style.textAlign = 'center';
     buttonPhone.innerHTML = '<i class="fa-solid fa-computer fa-2xl" style="color:white"></i>'
+
+
+    deviceChoose.addEventListener('click', (event) =>{
+        event.preventDefault();
+
+        console.log(window.application.screens);
+        window.application.renderScreen('signIn');
+    });
 
     container.appendChild(deviceChoose);
     deviceChoose.appendChild(buttonComputer);

@@ -7,55 +7,15 @@ body {
 }
 
 .app {
+  font-family: Roboto;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
   height: 100vh;
+  transition: opacity 1.1s cubic-bezier(0.59, 0.21, 0.5, 0.89);
 }
 
-.login__title {
-  grid-area: title;
-}
-.login__device {
-  grid-area: device;
-  display: flex;
-  justify-content: space-evenly;
-}
-.login__device__button {
-  width: 50px;
-  height: 50px;
-  background-color: blue;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid black;
-  transition: border 0.5s ease;
-}
-.login__device__button:hover {
-  border: 1px solid gray;
-  transition: border 0.5s ease;
-}
-.login__device__button:active {
-  border: 1px solid black;
-  transition: border 0.5 ease;
-}
-.login__device__button:hover .fa-solid {
-  transition: transform 0.7s ease;
-  transform: scale(1.1);
-}
-.login__device .fa-solid {
-  transition: transform 0.5s ease;
-}
-.login__wrapper {
-  box-shadow: 1px 1px 1px black;
-  background-color: rgba(10, 10, 10, 0.8);
-  width: 50%;
-  height: 45%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "title title title " "device device device";
-  align-items: center;
-  text-align: center;
-  color: white;
+.hide {
+  opacity: 0;
 }/*# sourceMappingURL=style.css.map */

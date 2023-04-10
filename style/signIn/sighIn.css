@@ -1,0 +1,44 @@
+.sign__wrapper {
+  box-shadow: 1px 1px 1px black;
+  background-color: rgba(10, 10, 10, 0.8);
+  width: 60%;
+  height: 50%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "title title title" "device device device";
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.sign__title {
+  grid-area: title;
+}
+.sign__form {
+  grid-area: device;
+  text-align: left;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 5px;
+  max-width: 200px;
+}
+.sign__button {
+  font-family: inherit;
+  font-size: 1em;
+  background-color: blue;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  transition: border 0.5s ease;
+}
+.sign__button:hover {
+  border: 1px solid gray;
+  transition: border 0.5s ease;
+}
+.sign__button:active {
+  border: 1px solid black;
+  transition: border 0.5 ease;
+}/*# sourceMappingURL=sighIn.css.map */
