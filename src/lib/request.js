@@ -1,35 +1,35 @@
-const noop = () => {}
+const noop = () => {};
 function request({
-    method = "GET",
-    url,
-    header = '',
-    headerValue = '',
-    type = "json",
-    reqName,
-    onSuccess = noop,
-    onError = noop,
+  method = "GET",
+  url,
+  header = "",
+  headerValue = "",
+  type = "json",
+  reqName,
+  onSuccess = noop,
+  onError = noop,
 }) {
-    reqName = new XMLHttpRequest();
+  reqName = new XMLHttpRequest();
 
-    reqName.open(method, url);
-    reqName.responseType = type;
-    if(header !== '') {
-        reqName.setRequestHeader(header, headerValue);
-    }
-    reqName.onload = (event) => {
-        const target = event.target;
+  reqName.open(method, url);
+  reqName.responseType = type;
+  if (header !== "") {
+    reqName.setRequestHeader(header, headerValue);
+  }
+  reqName.onload = (event) => {
+    const target = event.target;
 
-        if (target.status !== 200) {
-            onError(target.statusText);
-            return
-        }
-           
-        onSuccess(target.response);
+    if (target.status !== 200) {
+      onError(target.statusText);
+      return;
     }
 
-    reqName.onerror = () => {
-        onerror();
-    }
+    onSuccess(target.response);
+  };
 
-    reqName.send();
+  reqName.onerror = () => {
+    onerror();
+  };
+
+  reqName.send();
 }

@@ -1,46 +1,44 @@
 .lobby {
-    &__wrapper {
-        box-shadow: 1px 1px 1px black ;
-        background-color: rgba(10, 10, 10, 0.800);
-        width: 60%;
-        height: 65%;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "title title"
-            "menu players"
-            "menu players";
-        align-items: center;
-        text-align: center;
-        color: white;
-        
-    }
+  &__wrapper {
+    box-shadow: 1px 1px 1px black;
+    background-color: rgba(10, 10, 10, 0.8);
+    width: 60%;
+    height: 65%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "menu players"
+      "menu players";
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
 
-    &__menu{
-        grid-area: menu;
-    }
+  &__menu {
+    grid-area: menu;
+  }
 
-    &__title {
-        grid-area: title;
-    }
+  &__title {
+    grid-area: title;
+  }
 
-    &__players {
-        grid-area: players;
-        background-color: gray;
-        height: 100%;
-        text-align: left;
-        overflow-y: auto;
-    }
+  &__players {
+    grid-area: players;
+    background-color: gray;
+    height: 100%;
+    text-align: left;
+    overflow-y: auto;
+  }
 
-    &__players__title {
-        margin-top: 15px;
-        margin-left: 15px;
-    }
+  &__players__title {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
 
-    &__name {
-        margin-top: 15px;
-        margin-left: 15px;
-    }
-
+  &__name {
+    margin-top: 15px;
+    margin-left: 15px;
+  }
 }
