@@ -2,7 +2,7 @@
   box-shadow: 1px 1px 1px black;
   background-color: rgba(10, 10, 10, 0.8);
   width: 60%;
-  height: 50%;
+  height: 65%;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -24,8 +24,10 @@
   margin: auto;
   gap: 5px;
   max-width: 200px;
+  position: relative;
 }
 .sign__button {
+  position: relative;
   font-family: inherit;
   font-size: 1em;
   background-color: blue;
@@ -41,4 +43,38 @@
 .sign__button:active {
   border: 1px solid black;
   transition: border 0.5 ease;
+}
+.sign__error_positioned {
+  position: absolute;
+  top: 45px;
+  color: red;
+}
+.sign__error_hidden {
+  opacity: 0;
+}
+.sign__error {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.loader {
+  position: relative;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=sighIn.css.map */

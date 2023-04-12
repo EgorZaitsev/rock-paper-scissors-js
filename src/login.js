@@ -45,9 +45,11 @@ function deviceBlockRender(container) {
 
 
     deviceChoose.addEventListener('click', (event) =>{
+        const target = event.target;
         event.preventDefault();
-
-        console.log(window.application.screens);
+        if((target.tagName !== 'BUTTON') && (target.tagName !== 'I')) {
+            return
+        }
         window.application.renderScreen('signIn');
     });
 

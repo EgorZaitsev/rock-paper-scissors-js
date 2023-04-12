@@ -1,3 +1,16 @@
+.login__wrapper {
+  box-shadow: 1px 1px 1px black;
+  background-color: rgba(10, 10, 10, 0.8);
+  width: 60%;
+  height: 65%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "title title title " "device device device";
+  align-items: center;
+  text-align: center;
+  color: white;
+}
 .login__title {
   grid-area: title;
 }
@@ -31,17 +44,4 @@
 }
 .login__device .fa-solid {
   transition: transform 0.5s ease;
-}
-.login__wrapper {
-  box-shadow: 1px 1px 1px black;
-  background-color: rgba(10, 10, 10, 0.8);
-  width: 60%;
-  height: 50%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "title title title " "device device device";
-  align-items: center;
-  text-align: center;
-  color: white;
 }/*# sourceMappingURL=login.css.map */
