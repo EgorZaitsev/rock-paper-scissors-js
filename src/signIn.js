@@ -63,8 +63,8 @@ function signInRenderBlock(container) {
     let frame = 0;
     
     form.onsubmit = (event) => {
-        
         event.preventDefault();
+        form.appendChild(loader);
             if (input.validity.valid === false) {
             const interval = setInterval(() => {
                 if(frame >= 15) {
@@ -84,7 +84,6 @@ function signInRenderBlock(container) {
             return response.json();
         }).then(data => {
             input.setAttribute('disabled', '');
-            form.appendChild(loader);
             console.log(data);
             token = data.token;
             lobbyScreenRender();
