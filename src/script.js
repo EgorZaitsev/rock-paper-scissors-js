@@ -20,6 +20,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     let token = '';
     let gameId = '';
-    console.log(token);
+    
 
 });

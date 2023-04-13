@@ -20,17 +20,21 @@ function waitingScreenRender(info, text) {
     }, 1600);
 
     const intervalWaitGame = setInterval(() => {
-        waitingReq(info);
+        waitingReq(info, intervalWaitGame);
     }, 6000);
 }
 
-async function waitingReq(data) {
+async function waitingReq(data, interval) {
     const response = await fetch(
         `https://skypro-rock-scissors-paper.herokuapp.com/game-status?token=${token}&id=${gameId}`
     )
     const responseData = await response.json();
     if(responseData['game-status'].status === "waiting-for-your-move") {
-        clearInterval(intervalWaitGame);
+        clearInterval(interval);
         gameScreenRender();
+    }
+    if((responseData['game-status'].status === "win") || (responseData['game-status'].status === "lose")) {
+        finishScreenRender(data);
+        clearInterval(interval);
     }
 }

@@ -50,6 +50,9 @@ function buttonsBlockRender(container) {
             if (data['game-status'].status === "waiting-for-enemy-move"){
                 waitingScreenRender(data,'Waiting for enemy move...');
             }
+            if((data['game-status'].status === "win") || (data['game-status'].status === "lose")) {
+                finishScreenRender(data);
+            }
         }
         moveReq();
     });
