@@ -10,19 +10,19 @@
 */
 
 function lobbyScreenRender() {
-    const app = document.querySelector('.app');
-    
-    app.classList.add('hide');
-    
-    setTimeout(() => { 
-    app.innerHTML = '';
+  const app = document.querySelector(".app");
 
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('lobby__wrapper');
+  app.classList.add("hide");
 
-    const title = document.createElement('h1');
-    title.classList.add('lobby__title');
-    title.textContent = 'Lobby';
+  setTimeout(() => {
+    app.innerHTML = "";
+
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("lobby__wrapper");
+
+    const title = document.createElement("h1");
+    title.classList.add("lobby__title");
+    title.textContent = "Lobby";
 
     app.appendChild(wrapper);
     wrapper.appendChild(title);
@@ -31,20 +31,19 @@ function lobbyScreenRender() {
     menuBlockRender(wrapper);
     app.classList.remove('hide');
     }, 1600);
+
 }
 
-
 function menuBlockRender(container) {
-    const menu = document.createElement('div');
-    menu.classList.add('lobby__menu');
+  const menu = document.createElement("div");
+  menu.classList.add("lobby__menu");
 
-    const button = document.createElement('button');
-    button.classList.add('lobby__game');
-    button.textContent = 'Start Game';
+  const button = document.createElement("button");
+  button.classList.add("lobby__game");
+  button.textContent = "Start Game";
 
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
         reqlobby();
         
     });
@@ -53,7 +52,11 @@ function menuBlockRender(container) {
     container.appendChild(menu);
     menu.appendChild(button);
 
+
+  container.appendChild(menu);
+  menu.appendChild(button);
 }
+
 
 async function reqlobby() {
     const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${token}`);
@@ -76,15 +79,15 @@ async function reqGame(data) {
 
 };
 
+
 function playersBlockRender(container) {
-    const playersList = document.createElement('div');
-    playersList.classList.add('lobby__players');
+  const playersList = document.createElement("div");
+  playersList.classList.add("lobby__players");
 
-    const title = document.createElement('h3');
-    title.classList.add('lobby__players__title');
-    title.textContent = 'Players online';
-
-
+  const title = document.createElement("h3");
+  title.classList.add("lobby__players__title");
+  title.textContent = "Players online";
+ 
    
     container.appendChild(playersList);
     playersList.appendChild(title);
@@ -109,4 +112,5 @@ function playersBlockRender(container) {
             playersList.appendChild(elem);
         });
     }
+
 }

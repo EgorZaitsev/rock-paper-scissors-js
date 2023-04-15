@@ -11,30 +11,29 @@
 */
 
 function signInScreenRender() {
-    const app = document.querySelector('.app');
+  const app = document.querySelector(".app");
 
-    app.classList.add('hide');
+  app.classList.add("hide");
 
-    setTimeout(() => {
-        app.innerHTML = '';
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('sign__wrapper');
+  setTimeout(() => {
+    app.innerHTML = "";
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("sign__wrapper");
 
-        const title = document.createElement('h1');
-        title.classList.add('sign__title');
-        title.textContent = 'Rock, Paper, Scissors!';
+    const title = document.createElement("h1");
+    title.classList.add("sign__title");
+    title.textContent = "Rock, Paper, Scissors!";
 
-        app.appendChild(wrapper);
-        wrapper.appendChild(title);
-        
-        signInRenderBlock(wrapper);
-        app.classList.remove('hide');
-    }, 1600);
+    app.appendChild(wrapper);
+    wrapper.appendChild(title);
 
+    signInRenderBlock(wrapper);
+    app.classList.remove("hide");
+  }, 1600);
 }
 
-
 function signInRenderBlock(container) {
+
     const form = document.createElement('form');
     form.classList.add('sign__form');
     form.noValidate = true;
@@ -89,11 +88,24 @@ function signInRenderBlock(container) {
         });
     }
 
+    fetch(
+      `https://skypro-rock-scissors-paper.herokuapp.com/login?login=${input.value}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        input.setAttribute("disabled", "");
+        form.appendChild(loader);
+        console.log(data);
+        token = data.token;
+        lobbyScreenRender();
+      });
+  };
 
-
-    container.appendChild(form);
-    form.appendChild(lable);
-    form.appendChild(input);
-    form.appendChild(error);
-    form.appendChild(button);
+  container.appendChild(form);
+  form.appendChild(lable);
+  form.appendChild(input);
+  form.appendChild(error);
+  form.appendChild(button);
 }
