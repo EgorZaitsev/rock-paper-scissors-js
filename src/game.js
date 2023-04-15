@@ -52,7 +52,6 @@ function buttonsBlockRender(container) {
         async function moveReq() {
             const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/play?token=${token}&id=${gameId}&move=${target.textContent}`)
             const data = await response.json();
-            
 
             switch(data['game-status'].status) {
                 case 'waiting-for-enemy-move':

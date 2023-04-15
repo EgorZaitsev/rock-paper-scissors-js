@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     window.application.blocks['lobbyMenu'] = menuBlockRender;
     window.application.blocks['lobbyPlayerList'] = playersBlockRender;
 
-    // window.application.screens['game'] = gameScreenRender;
-    // window.application.blocks['gameButtons'] = buttonsBlockRender;
-
     window.application.screens['waiting'] = waitingScreenRender;
 
 
