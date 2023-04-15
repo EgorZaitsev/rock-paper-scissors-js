@@ -1,22 +1,21 @@
 * {
-    margin:0;
+  margin: 0;
 }
 
 body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .app {
-    font-family: Roboto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    height: 100vh;
-    transition: opacity 1.1s cubic-bezier(.59,.21,.5,.89);
+  font-family: Roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+  transition: opacity 1.1s cubic-bezier(0.59, 0.21, 0.5, 0.89);
 }
 
-
 .hide {
-    opacity: 0;
+  opacity: 0;
 }

@@ -1,61 +1,56 @@
 .login {
-    &__wrapper {
-        box-shadow: 1px 1px 1px black ;
-        background-color: rgba(10, 10, 10, 0.800);
-        width: 60%;
-        height: 65%;
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas: 
-            "title title title "
-            "device device device";
-        align-items: center;
-        text-align: center;
-        color: white;
-        
+  &__wrapper {
+    box-shadow: 1px 1px 1px black;
+    background-color: rgba(10, 10, 10, 0.8);
+    width: 60%;
+    height: 65%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "title title title "
+      "device device device";
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__device {
+    grid-area: device;
+    display: flex;
+    justify-content: space-evenly;
+    &__button {
+      font-family: Roboto;
+      font-size: 1em;
+      width: 60px;
+      height: 60px;
+      background-color: blue;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid black;
+      transition: border 0.5s ease;
     }
-    
-    &__title {
-        grid-area: title;
-    }
-
-    &__device {
-        grid-area: device;
-        display: flex;
-        justify-content: space-evenly;
-        &__button {
-            font-family: Roboto;
-            font-size: 1em;
-            width: 60px;
-            height: 60px;
-            background-color: blue;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid black;
-            transition: border .5s ease;
-            
-        }
-        &__button:hover {
-            border: 1px solid gray;
-            transition: border .5s ease;
-        }
-
-        &__button:active {
-            border: 1px solid black;
-            transition: border .5 ease;
-        }
-
-        &__button:hover .fa-solid {
-            transition: transform .7s ease;
-            transform: scale(1.1);
-        }
-
-        .fa-solid {
-            transition: transform .5s ease;
-        }
+    &__button:hover {
+      border: 1px solid gray;
+      transition: border 0.5s ease;
     }
 
+    &__button:active {
+      border: 1px solid black;
+      transition: border 0.5 ease;
+    }
 
+    &__button:hover .fa-solid {
+      transition: transform 0.7s ease;
+      transform: scale(1.1);
+    }
 
+    .fa-solid {
+      transition: transform 0.5s ease;
+    }
+  }
 }
