@@ -90,20 +90,6 @@ function signInRenderBlock(container) {
       });
   };
 
-  fetch(
-    `https://skypro-rock-scissors-paper.herokuapp.com/login?login=${input.value}`
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      input.setAttribute("disabled", "");
-      form.appendChild(loader);
-      console.log(data);
-      token = data.token;
-      lobbyScreenRender();
-    });
-
   container.appendChild(form);
   form.appendChild(lable);
   form.appendChild(input);
