@@ -84,7 +84,6 @@ function signInRenderBlock(container) {
             return response.json();
         }).then(data => {
             input.setAttribute('disabled', '');
-            console.log(data);
             token = data.token;
             lobbyScreenRender();
         });

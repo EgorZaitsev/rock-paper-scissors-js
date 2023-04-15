@@ -31,7 +31,7 @@ async function waitingReq(interval) {
     const responseData = await response.json();
     if(responseData['game-status'].status === "waiting-for-your-move") {
         clearInterval(interval);
-        gameScreenRender();
+        gameScreenRender(responseData);
     }
     if((responseData['game-status'].status === "win") || (responseData['game-status'].status === "lose")) {
         finishScreenRender(responseData);

@@ -1,4 +1,5 @@
 /* <div class="game__wrapper">
+            <p class="game__player">{game}
             <h1 class="game__title">Your move</h1>
             <button class="game__button">Rock</button>
             <button class="game__button">Scissors</button>
@@ -6,7 +7,7 @@
         </div> 
 */
 
-function gameScreenRender() {
+function gameScreenRender(data) {
     const app = document.querySelector('.app');
     
     app.classList.add('hide');
@@ -17,9 +18,14 @@ function gameScreenRender() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('game__wrapper');
 
+    const playerName = document.createElement('p');
+    playerName.classList.add('game__player');
+    playerName.textContent = `Your enemy is ${data['game-status'].enemy.login}`;
+
     const title = document.createElement('h1');
     title.textContent = 'Your turn';
     app.appendChild(wrapper);
+    wrapper.appendChild(playerName);
     wrapper.appendChild(title);
     
     buttonsBlockRender(wrapper);
@@ -46,7 +52,7 @@ function buttonsBlockRender(container) {
         async function moveReq() {
             const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/play?token=${token}&id=${gameId}&move=${target.textContent}`)
             const data = await response.json();
-            console.log(data);
+            
 
             switch(data['game-status'].status) {
                 case 'waiting-for-enemy-move':

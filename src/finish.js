@@ -22,7 +22,7 @@ function finishScreenRender(data) {
 
     app.appendChild(wrapper);
     wrapper.appendChild(title);
-    finishButtonsBlockRender(app);
+    finishButtonsBlockRender(wrapper);
     app.classList.remove('hide');
     },1600);
 }

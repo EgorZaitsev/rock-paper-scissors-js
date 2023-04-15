@@ -56,10 +56,8 @@ function menuBlockRender(container) {
 }
 
 async function reqlobby() {
-    console.log('aa')
     const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${token}`);
     const data = await response.json();
-    console.log(data);
     gameId = data['player-status'].game.id;
     reqGame(data);
 };
@@ -72,7 +70,7 @@ async function reqGame(data) {
         waitingScreenRender(data, 'Waiting for a game...');
         return
     }
-    gameScreenRender();
+    gameScreenRender(info);
     
     
 
