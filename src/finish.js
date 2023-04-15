@@ -22,7 +22,35 @@ function finishScreenRender(data) {
 
     app.appendChild(wrapper);
     wrapper.appendChild(title);
-
+    finishButtonsBlockRender(app);
     app.classList.remove('hide');
     },1600);
+}
+
+function finishButtonsBlockRender(container) {
+    const buttonPlayAgain = document.createElement('button');
+    buttonPlayAgain.classList.add('finish__button', 'finish__button_try');
+    buttonPlayAgain.textContent = 'Play again';
+
+    const buttonGoMenu = document.createElement('button');
+    buttonGoMenu.classList.add('finish__button', 'finish__button_menu');
+    buttonGoMenu.textContent = 'Go to lobby';
+
+    container.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = event.target;
+
+        if(target.classList.contains('finish__button_try')) {
+            reqlobby();
+            return
+        }
+
+        if(target.classList.contains('finish__button_menu')) {
+            lobbyScreenRender();
+            return
+        }
+    });
+    
+    container.appendChild(buttonPlayAgain);
+    container.appendChild(buttonGoMenu);
 }

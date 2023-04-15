@@ -1,0 +1,22 @@
+.finish__wrapper {
+  box-shadow: 1px 1px 1px black;
+  background-color: rgba(10, 10, 10, 0.8);
+  width: 60%;
+  height: 65%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "title" "again" "menu";
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.finish__title {
+  grid-area: title;
+}
+.finish__button_try {
+  grid-area: again;
+}
+.finish__button_menu {
+  grid-area: menu;
+}/*# sourceMappingURL=finish.css.map */

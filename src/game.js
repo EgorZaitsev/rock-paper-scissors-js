@@ -47,12 +47,20 @@ function buttonsBlockRender(container) {
             const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/play?token=${token}&id=${gameId}&move=${target.textContent}`)
             const data = await response.json();
             console.log(data);
-            if (data['game-status'].status === "waiting-for-enemy-move"){
-                waitingScreenRender(data,'Waiting for enemy move...');
+
+            switch(data['game-status'].status) {
+                case 'waiting-for-enemy-move':
+                    waitingScreenRender(data, 'Waiting for enemy move');
+                    break;
+                case 'win':
+                    finishScreenRender(data);
+                    break;
+                case 'lose':
+                    finishScreenRender(data);
+                    break;
+                
             }
-            if((data['game-status'].status === "win") || (data['game-status'].status === "lose")) {
-                finishScreenRender(data);
-            }
+            
         }
         moveReq();
     });
