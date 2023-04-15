@@ -8,9 +8,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   window.application.screens["lobby"] = lobbyScreenRender;
   window.application.blocks["lobbyMenu"] = menuBlockRender;
   window.application.blocks["lobbyPlayerList"] = playersBlockRender;
+  window.application.screens['waiting'] = waitingScreenRender;
 
-  window.application.renderScreen("login");
 
-  let token = "";
-  console.log(token);
+    window.application.renderScreen('login');
+
+
+    let token = '';
+    let gameId = '';
+    
+
 });
+
