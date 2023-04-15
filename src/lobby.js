@@ -29,9 +29,8 @@ function lobbyScreenRender() {
 
     playersBlockRender(wrapper);
     menuBlockRender(wrapper);
-    app.classList.remove('hide');
-    }, 1600);
-
+    app.classList.remove("hide");
+  }, 1600);
 }
 
 function menuBlockRender(container) {
@@ -44,41 +43,37 @@ function menuBlockRender(container) {
 
   button.addEventListener("click", (event) => {
     event.preventDefault();
-        reqlobby();
-        
-    });
-    
+    reqlobby();
+  });
 
-    container.appendChild(menu);
-    menu.appendChild(button);
-
+  container.appendChild(menu);
+  menu.appendChild(button);
 
   container.appendChild(menu);
   menu.appendChild(button);
 }
 
-
 async function reqlobby() {
-    const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/start?token=${token}`);
-    const data = await response.json();
-    gameId = data['player-status'].game.id;
-    reqGame(data);
-};
+  const response = await fetch(
+    `https://skypro-rock-scissors-paper.herokuapp.com/start?token=${token}`
+  );
+  const data = await response.json();
+  gameId = data["player-status"].game.id;
+  reqGame(data);
+}
 
 async function reqGame(data) {
-    const response = await fetch(`https://skypro-rock-scissors-paper.herokuapp.com/game-status?token=${token}&id=${gameId}`);
-    const info = await response.json();
-    console.log(info);
-    if(info['game-status'].status === "waiting-for-start") {
-        waitingScreenRender(data, 'Waiting for a game...');
-        return
-    }
-    gameScreenRender(info);
-    
-    
-
-};
-
+  const response = await fetch(
+    `https://skypro-rock-scissors-paper.herokuapp.com/game-status?token=${token}&id=${gameId}`
+  );
+  const info = await response.json();
+  console.log(info);
+  if (info["game-status"].status === "waiting-for-start") {
+    waitingScreenRender(data, "Waiting for a game...");
+    return;
+  }
+  gameScreenRender(info);
+}
 
 function playersBlockRender(container) {
   const playersList = document.createElement("div");
@@ -87,30 +82,25 @@ function playersBlockRender(container) {
   const title = document.createElement("h3");
   title.classList.add("lobby__players__title");
   title.textContent = "Players online";
- 
-   
-    container.appendChild(playersList);
-    playersList.appendChild(title);
-    getPlayers(); 
-    
-    
-    async function getPlayers() {
-        const response = await fetch('https://skypro-rock-scissors-paper.herokuapp.com/player-list')
-        const data = await response.json();
-        await generatePlayerList(data);
 
-    };
-    
+  container.appendChild(playersList);
+  playersList.appendChild(title);
+  getPlayers();
 
-    
-    function generatePlayerList(players) {
+  async function getPlayers() {
+    const response = await fetch(
+      "https://skypro-rock-scissors-paper.herokuapp.com/player-list"
+    );
+    const data = await response.json();
+    await generatePlayerList(data);
+  }
 
-        players.list.forEach(player => {
-            const elem = document.createElement('p');
-            elem.classList.add('lobby__name');
-            elem.textContent = player.login;
-            playersList.appendChild(elem);
-        });
-    }
-
+  function generatePlayerList(players) {
+    players.list.forEach((player) => {
+      const elem = document.createElement("p");
+      elem.classList.add("lobby__name");
+      elem.textContent = player.login;
+      playersList.appendChild(elem);
+    });
+  }
 }
